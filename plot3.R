@@ -20,7 +20,7 @@ plot3Data2<-as.numeric(levels(data$Sub_metering_2))[data$Sub_metering_2]
 plot3Data3<-data$Sub_metering_3
 
 # Create Plot
-png(file = "plot3.png")
+png(file = "plot3.png", width = 480, height = 480)
 plot(plot3Data1, type = "l", ylab = "Energy sub metering", xlab = "", xaxt = "n")
 lines(plot3Data2, col ="red")
 lines(plot3Data3, col ="blue")

@@ -14,7 +14,7 @@ unlink(temp)
 data <- data[data$Date =="1/2/2007" | data$Date == "2/2/2007",]
 
 #### Create Plot ####
-png(file = "plot4.png")
+png(file = "plot4.png", width = 480, height = 480)
 par(mfcol=c(2,2))
 
 #### plot in 1,1 ####

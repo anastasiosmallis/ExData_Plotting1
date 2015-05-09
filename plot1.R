@@ -24,7 +24,7 @@ data <- data[,-c(1,2)]
 data <- cbind(DateTime, data)
 
 #### Create Plot ####
-png(file = "plot1.png")
+png(file = "plot1.png", width = 480, height = 480)
 # Take the data I am to plot and turn them from factor to numeric
 plot1Data<-as.numeric(levels(data$Global_active_power))[data$Global_active_power]
 

@@ -14,7 +14,7 @@ unlink(temp)
 data <- data[data$Date =="1/2/2007" | data$Date == "2/2/2007",]
 
 #### Create Plot ####
-png(file = "plot2.png")
+png(file = "plot2.png", width = 480, height = 480)
 # Take the data I am to plot and turn them from factor to numeric
 plot2Data<-as.numeric(levels(data$Global_active_power))[data$Global_active_power]
 
