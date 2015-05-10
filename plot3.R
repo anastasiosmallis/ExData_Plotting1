@@ -36,3 +36,18 @@ legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3") ,lty=c(
 
 # Copy plot to a png file
 dev.off()
+
+#### Create Plot for Screen ####
+
+plot(plot3Data1, type = "l", ylab = "Energy sub metering", xlab = "", xaxt = "n")
+lines(plot3Data2, col ="red")
+lines(plot3Data3, col ="blue")
+
+# Set the axis values (I convert the first column into date format and then into day of the week)
+Days <- unique(as.Date(data$Date, "%d/%m/%Y"))
+Days <- format(c(Days,Days[length(Days)]+1), "%a")
+
+axis(1, at = c(1, length(plot3Data1)/2, length(plot3Data1)), labels = Days)
+
+# Add legend
+legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3") ,lty=c(1,1,1), col=c("black","red","blue"))

@@ -35,4 +35,11 @@ plot1Data <- plot1Data[!plot1Data=="?"]
 hist(plot1Data,main = "Global Active Power", xlab = "Global Active Power (killowatts)", col = "red")
 
 # Copy plot to a png file
+
 dev.off()
+
+#### Create Plot for screen ####
+
+# Create histogram
+hist(plot1Data,main = "Global Active Power", xlab = "Global Active Power (killowatts)", col = "red")
+

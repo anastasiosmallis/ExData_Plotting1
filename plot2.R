@@ -29,3 +29,17 @@ axis(1, at = c(1, length(plot2Data)/2, length(plot2Data)), labels = Days)
 
 # Copy plot to a png file
 dev.off()
+
+#### Create Plot for Screen ####
+
+# Take the data I am to plot and turn them from factor to numeric
+plot2Data<-as.numeric(levels(data$Global_active_power))[data$Global_active_power]
+
+# Create Plot
+plot(plot2Data, type = "l", ylab = "Global Active Power (killowatts)", xlab = "", xaxt = "n")
+
+# Set the axis values (I convert the first column into date format and then into day of the week)
+Days <- unique(as.Date(data$Date, "%d/%m/%Y"))
+Days <- format(c(Days,Days[length(Days)]+1), "%a")
+
+axis(1, at = c(1, length(plot2Data)/2, length(plot2Data)), labels = Days)

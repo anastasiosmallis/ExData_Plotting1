@@ -59,3 +59,45 @@ axis(1, at = c(1, length(plot3Data1)/2, length(plot3Data1)), labels = Days)
 
 dev.off()
 
+#### Create plot for screen ####
+par(mfcol=c(2,2))
+
+#### plot in 1,1 ####
+# Take the data I am to plot and turn them from factor to numeric
+plot2Data<-as.numeric(levels(data$Global_active_power))[data$Global_active_power]
+
+# Create Plot
+plot(plot2Data, type = "l", ylab = "Global Active Power (killowatts)", xlab = "", xaxt = "n")
+
+# Set the axis values (I convert the first column into date format and then into day of the week)
+Days <- unique(as.Date(data$Date, "%d/%m/%Y"))
+Days <- format(c(Days,Days[length(Days)]+1), "%a")
+
+axis(1, at = c(1, length(plot2Data)/2, length(plot2Data)), labels = Days)
+
+#### plot in 2,1 ####
+# Take the data I am to plot and turn them from factor to numeric
+plot3Data1<-as.numeric(levels(data$Sub_metering_1))[data$Sub_metering_1]
+plot3Data2<-as.numeric(levels(data$Sub_metering_2))[data$Sub_metering_2]
+plot3Data3<-data$Sub_metering_3
+
+plot(plot3Data1, type = "l", ylab = "Energy sub metering", xlab = "", xaxt = "n")
+lines(plot3Data2, col ="red")
+lines(plot3Data3, col ="blue")
+
+axis(1, at = c(1, length(plot3Data1)/2, length(plot3Data1)), labels = Days)
+
+# Add legend
+legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3") ,lty=c(1,1,1), col=c("black","red","blue"),bty = "n")
+
+#### plot in 1,2 ####
+Voltage <- as.numeric(levels(data$Voltage))[data$Voltage]
+plot(Voltage, type ="l", xlab = "datetime", xaxt = "n")
+
+axis(1, at = c(1, length(plot3Data1)/2, length(plot3Data1)), labels = Days)
+
+#### plot in 2,2 ####
+Global_reactive_power <- as.numeric(levels(data$Global_reactive_power))[data$Global_reactive_power]
+plot(Global_reactive_power, type ="l", xlab = "datetime", xaxt = "n")
+
+axis(1, at = c(1, length(plot3Data1)/2, length(plot3Data1)), labels = Days)
