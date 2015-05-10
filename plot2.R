@@ -32,9 +32,6 @@ dev.off()
 
 #### Create Plot for Screen ####
 
-# Take the data I am to plot and turn them from factor to numeric
-plot2Data<-as.numeric(levels(data$Global_active_power))[data$Global_active_power]
-
 # Create Plot
 plot(plot2Data, type = "l", ylab = "Global Active Power (killowatts)", xlab = "", xaxt = "n")
 
